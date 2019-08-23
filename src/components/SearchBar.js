@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Paper, TextField } from '@material-ui/core';
 
-const SearchBar = ({onFormSubmit}) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBar = ({onFormSubmit, defaultSearchTerm}) => {
+  const [searchTerm, setSearchTerm] = useState(defaultSearchTerm);
 
   const handleChange = event => setSearchTerm(event.target.value);
   

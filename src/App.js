@@ -1,52 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import youtube from './api/youtube';
 import { SearchBar, VideoList, VideoDetail } from './components';
 
-class App extends React.Component {
-  state = {
-    videos: [],
-    selectedVideo: null,
-  }
+const App = () => {
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   
-  handleSubmit = async (searchTerm) => {
+  const defaultSearchTerm = 'Cake';
+  useEffect(() =>{
+    handleSubmit(defaultSearchTerm);
+  }, []);
+
+  const handleSubmit = async (searchTerm) => {
     const response = await youtube.get('search', {
       params: {
         part: 'snippet',
         maxResults: 5,
-        key: '[YOUR_API_KEY]',
+        key: 'AIzaSyCI9RjcCDDde_--SOag8wP0a0Z2lkt4aF0',
         q: searchTerm,
       }
     });
 
-    this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] });
+    setSelectedVideo(response.data.items[0]);
+    setVideos(response.data.items);
   }
 
-  onVideoSelect = (video) => {
-    this.setState({ selectedVideo: video });
+  const onVideoSelect = (video) => {
+    setSelectedVideo(video);
   }
 
-	render() {
-    const { selectedVideo, videos } = this.state;
-
-    return (
-      <Grid style={{ justifyContent: 'center' }} container spacing={10}>
-        <Grid item xs={11}>
-          <Grid container spacing={10}>
-            <Grid item xs={12}>
-              <SearchBar onFormSubmit={this.handleSubmit} />
-            </Grid>
-            <Grid item xs={8}>
-              <VideoDetail video={selectedVideo} />
-            </Grid>
-            <Grid item xs={4}>
-              <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
-            </Grid>
+  return (
+    <Grid style={{ justifyContent: 'center' }} container spacing={10}>
+      <Grid item xs={11}>
+        <Grid container spacing={10}>
+          <Grid item xs={12}>
+            <SearchBar onFormSubmit={handleSubmit} defaultSearchTerm={defaultSearchTerm} />
+          </Grid>
+          <Grid item xs={8}>
+            <VideoDetail video={selectedVideo} />
+          </Grid>
+          <Grid item xs={4}>
+          <VideoList videos={videos} onVideoSelect={onVideoSelect} />
           </Grid>
         </Grid>
       </Grid>
-    );
-  }
+    </Grid>
+  );
 }
 
 export default App;
