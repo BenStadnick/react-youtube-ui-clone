@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import youtube from './api/youtube';
-import { SearchBar, VideoList, VideoDetail } from './components';
+import { SearchBar, VideoList, VideoPlayer } from './components';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   
-  const defaultSearchTerm = 'Cake';
+  const defaultSearchTerm = 'Python';
   useEffect(() =>{
     handleSubmit(defaultSearchTerm);
   }, []);
@@ -38,7 +40,7 @@ const App = () => {
             <SearchBar onFormSubmit={handleSubmit} defaultSearchTerm={defaultSearchTerm} />
           </Grid>
           <Grid item xs={8}>
-            <VideoDetail video={selectedVideo} />
+            <VideoPlayer video={selectedVideo} />
           </Grid>
           <Grid item xs={4}>
           <VideoList videos={videos} onVideoSelect={onVideoSelect} />

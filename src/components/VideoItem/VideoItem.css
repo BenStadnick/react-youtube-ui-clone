@@ -1,0 +1,13 @@
+.VideoItemCard {
+  cursor: pointer;
+  width: 95%;
+  margin: 10px;
+}
+
+.VideoItemCard:hover {
+  border-color: green;
+}
+
+.ImageContainer {
+  text-align: center;
+}
