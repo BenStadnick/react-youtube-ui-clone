@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Paper, TextField } from '@material-ui/core';
+import Form from 'react-bootstrap/Form';
 
 const SearchBar = ({onFormSubmit, defaultSearchTerm}) => {
   const [searchTerm, setSearchTerm] = useState(defaultSearchTerm);
@@ -8,16 +8,16 @@ const SearchBar = ({onFormSubmit, defaultSearchTerm}) => {
   
   const handleSubmit = (event) => {
     onFormSubmit(searchTerm);
-
     event.preventDefault();
   }
 
   return (
-    <Paper elevation={6} style={{ padding: '25px' }}>
-      <form onSubmit={handleSubmit}>
-        <TextField fullWidth label="Search..." value={searchTerm} onChange={handleChange} />
-      </form>
-    </Paper>
+    <div style={{ padding: '25px' }}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Label>Search: </Form.Label>
+        <Form.Control type='text' placeholder='Search...' value={searchTerm} onChange={handleChange} />
+      </Form>
+    </div>
   );
 }
 
