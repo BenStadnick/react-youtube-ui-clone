@@ -1,0 +1,9 @@
+.search_bar_container {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.search_bar_input {
+  width: 70%;
+  display: inline-block;
+}

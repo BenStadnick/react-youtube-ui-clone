@@ -18,6 +18,8 @@ const App = () => {
     const response = await youtube.get('search', {
       params: {
         part: 'snippet',
+        type: 'video',
+        videoEmbeddable: 'true',
         maxResults: 5,
         key: 'AIzaSyCI9RjcCDDde_--SOag8wP0a0Z2lkt4aF0',
         q: searchTerm,
@@ -28,8 +30,8 @@ const App = () => {
     setVideos(response.data.items);
   }
 
-  const onVideoSelect = (video) => {
-    setSelectedVideo(video);
+  const onVideoSelect = (videoId) => {
+    setSelectedVideo(videoId);
   }
 
   return (
