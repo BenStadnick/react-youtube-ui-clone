@@ -1,6 +1,7 @@
 .search_bar_container {
   text-align: center;
   padding-top: 25px;
+  padding-bottom: 15px;
 }
 
 .search_bar_input {

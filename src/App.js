@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from '@material-ui/core';
 import youtube from './api/youtube';
+import { Container, Row, Col } from 'react-bootstrap';
 import { SearchBar, VideoList, VideoPlayer } from './components';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,21 +35,21 @@ const App = () => {
   }
 
   return (
-    <Grid style={{ justifyContent: 'center' }} container spacing={10}>
-      <Grid item xs={11}>
-        <Grid container spacing={10}>
-          <Grid item xs={12}>
-            <SearchBar onFormSubmit={handleSubmit} defaultSearchTerm={defaultSearchTerm} />
-          </Grid>
-          <Grid item xs={8}>
-            <VideoPlayer video={selectedVideo} />
-          </Grid>
-          <Grid item xs={4}>
+    <Container>
+      <Row>
+        <Col md={12}>
+          <SearchBar onFormSubmit={handleSubmit} defaultSearchTerm={defaultSearchTerm} />
+        </Col>
+      </Row>
+      <Row>
+        <Col md={8}>
+          <VideoPlayer video={selectedVideo} />
+        </Col>
+        <Col md={4}>
           <VideoList videos={videos} onVideoSelect={onVideoSelect} />
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+        </Col>
+      </Row>   
+    </Container>
   );
 }
 
