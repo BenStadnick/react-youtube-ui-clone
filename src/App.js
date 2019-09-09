@@ -21,7 +21,7 @@ const App = () => {
         type: 'video',
         videoEmbeddable: 'true',
         maxResults: 5,
-        key: 'AIzaSyCI9RjcCDDde_--SOag8wP0a0Z2lkt4aF0',
+        key: `${process.env.REACT_APP_YOUTUBE_API_KEY}`,
         q: searchTerm,
       }
     });
