@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoItem component did shallow render 1`] = `
+<div>
+  Unalbe to load video
+</div>
+`;
+
+exports[`VideoItem component did shallow render 2`] = `
+<Card
+  body={false}
+  className="VideoItemCard"
+  onClick={[Function]}
+>
+  <CardBody>
+    <div
+      className="ImageContainer"
+    >
+      <img
+        alt="Unable to load thumbnail"
+        src="test url"
+        style={
+          Object {
+            "maxHeight": "0px",
+            "maxWidth": "0px",
+          }
+        }
+      />
+    </div>
+    <CardText>
+      test title
+    </CardText>
+  </CardBody>
+</Card>
+`;

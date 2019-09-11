@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect}  from 'react';
-import youtube from '../api/youtube';
+import youtube from '../../api/youtube';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 const VideoPlayer = ({ video }) => {

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoList component did shallow render 1`] = `
+<div>
+  Unable to load recomendations
+</div>
+`;
+
+exports[`VideoList component did shallow render 2`] = `
+<div>
+  Unable to load recomendations
+</div>
+`;
+
+exports[`VideoList component did shallow render 3`] = `
+<div>
+  <VideoItem
+    key="0"
+    video={
+      Object {
+        "snippet": Object {
+          "thumbnails": Object {
+            "medium": Object {
+              "url": "test url",
+            },
+          },
+          "title": "test title",
+        },
+      }
+    }
+  />
+  <VideoItem
+    key="1"
+    video={
+      Object {
+        "snippet": Object {
+          "thumbnails": Object {
+            "medium": Object {
+              "url": "test url",
+            },
+          },
+          "title": "test title",
+        },
+      }
+    }
+  />
+  <VideoItem
+    key="2"
+    video={
+      Object {
+        "snippet": Object {
+          "thumbnails": Object {
+            "medium": Object {
+              "url": "test url",
+            },
+          },
+          "title": "test title",
+        },
+      }
+    }
+  />
+</div>
+`;

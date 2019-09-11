@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component did shallow render 1`] = `
+<div
+  className="search_bar_container"
+>
+  <Form
+    className="search_bar_input"
+    inline={false}
+    onSubmit={[Function]}
+  >
+    <InputGroup>
+      <FormControl
+        onChange={[Function]}
+        placeholder="Search..."
+        type="text"
+      />
+      <InputGroupAppend>
+        <Button
+          active={false}
+          disabled={false}
+          type="submit"
+          variant="outline-primary"
+        >
+          Search
+        </Button>
+      </InputGroupAppend>
+    </InputGroup>
+  </Form>
+</div>
+`;
