@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoPlayer component did mount with video 1`] = `
+<VideoPlayer
+  video={Object {}}
+>
+  <div
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    Loading...
+  </div>
+</VideoPlayer>
+`;

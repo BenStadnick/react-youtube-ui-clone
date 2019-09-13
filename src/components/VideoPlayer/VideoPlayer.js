@@ -16,24 +16,25 @@ const VideoPlayer = ({ video }) => {
     setElemWidth(ref.current ? ref.current.offsetWidth : 0);
   }, []);
 
+  
+  // get video details from YouTube
+  const getVideoDetails = async (videoId) => {
+    if(!videoId) return;
 
-  // get video details
+    const response = await youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        id: videoId,
+        key: `${process.env.REACT_APP_YOUTUBE_API_KEY}`
+      }
+    });
+
+    setVideoDetails(response.data.items[0]);
+  }
+
   const [videoDetails, setVideoDetails] = useState(null);
   useEffect(() => {
-    if(!video) return;
-
-    const getVideoDetails = async (videoId) => {
-      if(!video) return;
-
-      const response = await youtube.get('videos', {
-        params: {
-          part: 'snippet',
-          id: videoId,
-          key: 'AIzaSyCI9RjcCDDde_--SOag8wP0a0Z2lkt4aF0'
-        }
-      });
-      setVideoDetails(response.data.items[0]);
-    }
+    if(!(video && video.id && video.id.videoId)) return;
 
     getVideoDetails(video.id.videoId);
   }, [video]);
@@ -60,9 +61,10 @@ const VideoPlayer = ({ video }) => {
   }, [showAll])
 
 
+  // return if video is invalid
   if(!videoDetails) return <div ref={ref} style={{width: '100%'}}>Loading...</div>
 
-
+  // else gather video and its details for display
   const title = videoDetails.snippet.localized.title ? videoDetails.snippet.localized.title : videoDetails.snippet.title;
   const channelTitle = video.snippet.channelTitle;
   const publishedAt = video.snippet.publishedAt.substring(0,10);
